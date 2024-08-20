@@ -1,0 +1,19 @@
+apiVersion: blueprint.mirantis.com/v1alpha1
+kind: Blueprint
+metadata:
+  name: grafana-cluster
+spec:
+  components:
+    addons:
+      - name: nginx
+        kind: chart
+        enabled: true
+        dryRun: false
+        namespace: default
+        chart:
+          name: nginx
+          repo: https://charts.bitnami.com/bitnami
+          version: 15.1.1
+          values: |
+            service:
+              type: ClusterIP
