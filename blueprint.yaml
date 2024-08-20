@@ -5,14 +5,14 @@ metadata:
 spec:
   components:
     addons:
-      - name: grafana
-        kind: chart
-        enabled: true
-        namespace: grafana
-        chart:
-          name: grafana
-          repo: https://grafana.github.io/helm-charts
-          version: 7.0.8
+      # - name: grafana
+      #   kind: chart
+      #   enabled: true
+      #   namespace: grafana
+      #   chart:
+      #     name: grafana
+      #     repo: https://grafana.github.io/helm-charts
+      #     version: 7.0.8
       - name: prometheus
         kind: chart
         namespace: prometheus
