@@ -5,15 +5,15 @@ metadata:
 spec:
   components:
     addons:
-      - name: nginx
-        kind: chart
-        enabled: true
-        dryRun: false
-        namespace: default
-        chart:
-          name: nginx
-          repo: https://charts.bitnami.com/bitnami
-          version: 15.1.1
-          values: |
-            service:
-              type: ClusterIP
+      # - name: nginx
+      #   kind: chart
+      #   enabled: true
+      #   dryRun: false
+      #   namespace: default
+      #   chart:
+      #     name: nginx
+      #     repo: https://charts.bitnami.com/bitnami
+      #     version: 15.1.1
+      #     values: |
+      #       service:
+      #         type: ClusterIP
