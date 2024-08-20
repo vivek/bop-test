@@ -1,19 +1,34 @@
 apiVersion: blueprint.mirantis.com/v1alpha1
 kind: Blueprint
 metadata:
-  name: grafana-cluster
+  name: sample-cluster
 spec:
   components:
     addons:
-      # - name: nginx
-      #   kind: chart
-      #   enabled: true
-      #   dryRun: false
-      #   namespace: default
-      #   chart:
-      #     name: nginx
-      #     repo: https://charts.bitnami.com/bitnami
-      #     version: 15.1.1
-      #     values: |
-      #       service:
-      #         type: ClusterIP
+      - name: grafana
+        kind: chart
+        enabled: true
+        namespace: grafana
+        chart:
+          name: grafana
+          repo: https://grafana.github.io/helm-charts
+          version: 7.0.8
+      - name: prometheus
+        kind: chart
+        namespace: prometheus
+        chart:
+          name: prometheus
+          repo: https://prometheus-community.github.io/helm-charts
+          version: 25.8.0
+      - name: wordpress
+        kind: chart
+        namespace: wordpress
+        chart:
+          name: wordpress
+          repo: https://charts.bitnami.com/bitnami
+          version: 18.0.11
+      - name: metal-lb
+        kind: manifest
+        enabled: true
+        manifest:
+          url: https://raw.githubusercontent.com/metallb/metallb/v0.13.7/config/manifests/metallb-native.yaml
